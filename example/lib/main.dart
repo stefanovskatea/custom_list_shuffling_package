@@ -42,8 +42,13 @@ class MyHomePage extends StatefulWidget {
 
 class _MyHomePageState extends State<MyHomePage> {
   @override
-  Widget build(BuildContext context) {
+  void initState() {
     dummyData.shuffleElements((element) => (element['random']));
+    super.initState();
+  }
+
+  @override
+  Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
         title: Text(widget.title),
@@ -55,7 +60,7 @@ class _MyHomePageState extends State<MyHomePage> {
               child: Padding(
                 padding: const EdgeInsets.all(8.0),
                 child: Text(
-                    '${dummyData[index]['name']}      is this random? - ${dummyData[index]['random']}'),
+                    '${dummyData[index]['name']}  randomFlag: - ${dummyData[index]['random']}'),
               ),
             );
           }),
